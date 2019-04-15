@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import InputTask from '@/components/InputTask'
-import TaskList from '@/components/TaskList'
+import InputTask from '@/components/InputTask';
+import TaskList from '@/components/TaskList';
 
 export default {
   name: 'App',
@@ -21,14 +21,14 @@ export default {
   data () {
     return {
       tasks: []
-    }
+    };
   },
   methods: {
     addTask (task) {
-      this.tasks.push(task)
+      this.tasks.push(task);
     }
   }
-}
+};
 </script>
 
 <style>

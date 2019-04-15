@@ -7,25 +7,25 @@
 </template>
 
 <script>
-import { Task } from '@/models/Task.js'
+import { Task } from '@/models/Task.js';
 
 export default {
   data () {
     return {
 
-    }
+    };
   },
   methods: {
     addTask ($event) {
-      let value = $event.target.value
-      let task = new Task()
-      task.completed = false
-      task.title = value
-      this.$emit('newTask', task)
-      $event.target.value = ''
+      let value = $event.target.value;
+      let task = new Task();
+      task.completed = false;
+      task.title = value;
+      this.$emit('newTask', task);
+      $event.target.value = '';
     }
   }
-}
+};
 </script>
 
 <style>
