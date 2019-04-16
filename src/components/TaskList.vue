@@ -1,12 +1,14 @@
 <template>
   <ul class="todo-list">
-    <li v-for="(todo, index) in sortedTasks" :key="index" class="todo">
-      <div class="view">
-        <input class="toggle" @click="completeTask(todo)" type="checkbox">
-        <label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
-        <label v-else :class="{ 'todo-completed': todo.completed }">{{ todo.title }}</label>
-      </div>
-    </li>
+    <transition-group name="fade">
+      <li v-for="(todo, index) in sortedTasks" :key="index" class="todo">
+        <div class="view">
+          <input class="toggle" @click="completeTask(todo)" type="checkbox">
+          <label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
+          <label v-else :class="{ 'todo-completed': todo.completed }">{{ todo.title }}</label>
+        </div>
+      </li>
+    </transition-group>
   </ul>
 </template>
 
@@ -31,7 +33,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 .todo-list {
   margin: 0;
   padding: 0;
@@ -139,5 +141,11 @@ Can't use it globally since it destroys checkboxes in Firefox
     -webkit-appearance: none;
     appearance: none;
   }
+}
+.fade-enter-active, .fade-leave-active {
+transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+opacity: 0
 }
 </style>
