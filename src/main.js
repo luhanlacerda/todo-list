@@ -3,8 +3,14 @@
 import Vue from 'vue';
 import App from './App';
 import router from '@/router';
+import VueResource from 'vue-resource';
+import VueEvents from '@/plugins/events';
 
 Vue.config.productionTip = false;
+
+Vue.use(VueEvents);
+
+Vue.use(VueResource);
 
 /* eslint-disable no-new */
 new Vue({
@@ -13,6 +19,8 @@ new Vue({
   components: { App },
   template: `
   <div id="app">
-    <router-view class="view" />
+    <transition name="fade" mode="out-in">
+      <router-view class="view" />
+    </transition>
   </div>`
 });

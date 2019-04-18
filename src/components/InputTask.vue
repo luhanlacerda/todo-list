@@ -1,20 +1,25 @@
 <template>
   <div>
-    <input class="new-todo" @keyup.enter="addTask" placeholder="O que precisa ser feito?">
+    <input v-focus="true" class="new-todo" @keyup.enter="addTask" placeholder="O que precisa ser feito?">
   </div>
 </template>
 
 <script>
 import { Task } from '@/models/Task.js';
+import Focus from '@/directives/focus';
 
 export default {
   data () {
     return {};
   },
+  directives: {
+    'focus': Focus
+  },
   methods: {
     addTask ($event) {
       let value = $event.target.value;
       let task = this.createTask(value);
+      task.id = Math.random(); // GAMBI! Ajustar para criar id tb
       this.broadcast(task);
       this.clearField($event);
     },

@@ -4,6 +4,8 @@
       <h1>Tarefas</h1>
       <InputTask @newTask="addTask"/>
       <TaskList v-bind:todo-list="tasks"/>
+      <router-link class="cep" to="/cep">Verificar CEP</router-link>
+      <FooterTodo />
     </header>
   </section>
 </template>
@@ -11,12 +13,14 @@
 <script>
 import InputTask from '@/components/InputTask';
 import TaskList from '@/components/TaskList';
+import FooterTodo from '@/components/FooterTodo';
 
 export default {
   name: 'App',
   components: {
     InputTask,
-    TaskList
+    TaskList,
+    FooterTodo
   },
   data () {
     return {

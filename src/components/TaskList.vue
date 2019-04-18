@@ -1,7 +1,7 @@
 <template>
   <ul class="todo-list">
     <transition-group name="fade">
-      <li v-for="(todo, index) in sortedTasks" :key="index" class="todo">
+      <li v-for="todo in sortedTasks" :key="todo.id" class="todo">
         <div class="view">
           <input class="toggle" @click="completeTask(todo)" type="checkbox">
           <label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
